@@ -23,7 +23,7 @@
 	
 	<tx:annotation-driven/>
 	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" p:driverClassName="${driver}" p:url="${url}" p:username="${username}" p:password="${password}"></bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" p:driverClassName="${driver}" p:url="${url}" p:username="${dbuser}" p:password="${password}"></bean>
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource"></bean>	<!-- Spring JDBC和Mybatis都使用这个事务管理器 -->
 	
 	<!-- 集成Mybatis -->
@@ -32,5 +32,5 @@
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	<!-- 将Mybatis的接口转换为Spring的bean -->
-	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactory-ref="sqlSessionFactory" p:basePackage="com.asiainfo.dao.interfaces"></bean>
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="com.asiainfo.dao.interfaces"></bean>
 </beans>

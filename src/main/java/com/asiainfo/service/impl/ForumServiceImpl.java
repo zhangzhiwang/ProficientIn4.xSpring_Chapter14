@@ -12,7 +12,7 @@ public class ForumServiceImpl {
 	private IForumDao forumDao;
 	
 	public Forum getForumById(int forumId) {
-		return forumDao.getForumById(1);
+		return forumDao.getForumById(forumId);
 	}
 	
 	public int addForum(Forum forum) {

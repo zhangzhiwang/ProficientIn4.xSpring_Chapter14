@@ -7,7 +7,7 @@
 	</select>
 	
 	<insert id="addForum" parameterType="Forum">
-		insert into t_forum (forum_name,forum_desc) values (#{forumName},forum_desc)
+		insert into t_forum (forum_name,forum_desc) values (#{forumName},#{forumDesc})
 	</insert>
 	
 	<update id="updateForumById" parameterType="Forum">
